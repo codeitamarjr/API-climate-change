@@ -9,6 +9,14 @@ const { response } = require('express')
 const app = express()
 
 const sourcenewspapers = [{
+        name: 'climatechangenewsn',
+        address: 'https://www.climatechangenews.com',
+        base: ''
+    }, {
+        name: 'nbc',
+        address: 'https://www.nbcnews.com/climate-in-crisis',
+        base: ''
+    }, {
         name: 'thetimes',
         address: 'https://www.thetimes.co.uk/environment/climate-change',
         base: ''
@@ -95,5 +103,4 @@ app.get('/news/:newspaperId', (req, res) => {
             res.json(specificarticles)
         }).catch(err => console.log(err))
 })
-
 app.listen(PORT, () => console.log('server runing on PORT ${PORT}'))
