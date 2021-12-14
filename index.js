@@ -9,10 +9,6 @@ const { response } = require('express')
 const app = express()
 
 const sourcenewspapers = [{
-        name: 'climatechangenewsn',
-        address: 'https://www.climatechangenews.com',
-        base: ''
-    }, {
         name: 'nbc',
         address: 'https://www.nbcnews.com/climate-in-crisis',
         base: ''
@@ -46,9 +42,6 @@ const sourcenewspapers = [{
         address: 'https://news.sky.com/climate',
         base: 'https://news.sky.com/'
     }
-
-
-
 ]
 
 const articles = []
@@ -72,7 +65,7 @@ sourcenewspapers.forEach(sourcenewspapers => {
 })
 
 app.get('/', (req, res) => {
-    res.json('Welcome to my CLimate Change News API')
+    res.json('Welcome to my The Climate Change News API; Read the readme.md for help or type /news for news')
 })
 
 app.get('/news', (req, res) => {
@@ -81,7 +74,6 @@ app.get('/news', (req, res) => {
 
 app.get('/news/:newspaperId', (req, res) => {
     const newpaperID = req.params.newspaperId
-
     const newspaperAddress = sourcenewspapers.filter(sourcenewspapers => sourcenewspapers.name == newpaperID)[0].address
     const newspaperBase = sourcenewspapers.filter(sourcenewspapers => sourcenewspapers.name == newpaperID)[0].base
 
@@ -89,18 +81,18 @@ app.get('/news/:newspaperId', (req, res) => {
         .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
-            const specificarticles = []
+            const specificarticlesArray = []
 
             $('a:contains("climate")', html).each(function() {
                 const title = $(this).text()
                 const url = $(this).attr('href')
-                specificarticles.push({
+                specificarticlesArray.push({
                     title,
                     url: newspaperBase + url,
                     source: newpaperID
                 })
             })
-            res.json(specificarticles)
-        }).catch(err => console.log(err))
+            res.json(specificarticlesArray)
+        }).catch((err) => console.log(err))
 })
-app.listen(PORT, () => console.log('server runing on PORT ${PORT}'))
+app.listen(PORT, () => console.log('server runing on PORT ' + PORT))
