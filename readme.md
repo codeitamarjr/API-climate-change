@@ -27,6 +27,6 @@ if you access /source you'll get the source news
 
 ## You can check the API live here
 
-
  - [API Climate Change](https://rapidapi.com/codeitamarjr/api/climate-change-news48)
+ - [API Working Live](https://climate-change-latest-news-api.herokuapp.com)
 
