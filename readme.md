@@ -14,19 +14,33 @@ The dependies are:
 Disclaimer:
 
 The source of news are:
+*NBC
 
-NBC The Times   The Guardian    Telegraph   BBC TNYT    SKY
+*The
+
+*Times
+
+*The Guardian
+
+*Telegraph
+
+*BBC
+
+*TNYT - The New York Times
+
+*SKY
 
 Instructions
 
-const PORT on index.js is the port to listen
+const PORT on index.js is the port to listen the API
 
-if you access the adress /news we can see the API working
+if you access the adress /news we can see the API working and showing all the news about climate change
 
-if you access /source you'll get the source news
+if you access /source you'll get the a specific source news such /tnyt to see all the news from The New York Times
 
 ## You can check the API live here
 
- - [API Climate Change](https://rapidapi.com/codeitamarjr/api/climate-change-news48)
- - [API Working Live](https://climate-change-latest-news-api.herokuapp.com)
+ - [API Climate Change to use on your project](https://rapidapi.com/codeitamarjr/api/climate-change-news48)
+ - [API - Main page: Working Live](https://climate-change-latest-news-api.herokuapp.com)
+ - [API - News: Working Live](https://climate-change-latest-news-api.herokuapp.com/news)
 
